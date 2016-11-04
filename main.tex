@@ -1,0 +1,298 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+% From https://gist.github.com/timvdalen/3796300
+% From https://hackage.haskell.org/package/alloy-1.2.0/src/tutorial/tutorial.tex
+\usepackage{color}
+\usepackage{listings} % For Alloy code highlights
+% alloy.sty
+% Alloy mode for the LaTeX listings package.
+% This is public domain
+
+\lstdefinelanguage{alloy}{
+  keywords={%
+      assert, pred, all, no, lone, one, some, check, run,
+      but, let, implies, not, iff, in, and, or, set, sig, Int, int,
+      if, then, else, exactly, disj, fact, fun, module, abstract,
+      extends, open, none, univ, iden, seq,
+  },
+  literate=%
+    {:}{$\colon$}1
+    {|}{$\bullet$}1
+    {==}{$=$}1
+    {=}{$=$}1
+    {!=}{$\neq$}1
+    {&&}{$\land$}1
+    {||}{$\lor$}1
+    {<=}{$\le$}1
+    {>=}{$\ge$}1
+    {all}{$\forall$}1
+    {exists}{$\exists$}1
+    {!in}{$\not\in$}1
+    {\\in}{$\in$}1
+    {=>}{$\implies$}2
+    % the following isn't actually Alloy, but it gives the option to produce nicer latex
+    {|=>}{$\Rightarrow$}2
+    {<=set}{$\subseteq$}1
+    {+set}{$\cup$}1
+    {*set}{$\cap$}1
+    {==>}{$\Longrightarrow$}3
+    {<==>}{$\Longleftrightarrow$}4
+    {...}{$\ldots$}1
+    {\\hl}{$\hline$}1
+    {\\alpha}{$\alpha$}1
+    {\\beta}{$\beta$}1
+    {\\gamma}{$\gamma$}1
+    {\\delta}{$\delta$}1
+    {\\epsilon}{$\epsilon$}1
+    {\\zeta}{$\zeta$}1
+    {\\eta}{$\eta$}1
+    {\\theta}{$\theta$}1
+    {\\iota}{$\iota$}1
+    {\\kappa}{$\kappa$}1
+    {\\lambda}{$\lambda$}1
+    {\\mu}{$\mu$}1
+    {\\nu}{$\nu$}1
+    {\\xi}{$\xi$}1
+    {\\pi}{$\pi$}1
+    {\\rho}{$\rho$}1
+    {\\sigma}{$\sigma$}1
+    {\\tau}{$\tau$}1
+    {\\upsilon}{$\upsilon$}1
+    {\\phi}{$\phi$}1
+    {\\chi}{$\chi$}1
+    {\\psi}{$\psi$}1
+    {\\omega}{$\omega$}1
+    {\\Gamma}{$\Gamma$}1
+    {\\Delta}{$\Delta$}1
+    {\\Theta}{$\Theta$}1
+    {\\Lambda}{$\Lambda$}1
+    {\\Xi}{$\Xi$}1
+    {\\Pi}{$\Pi$}1
+    {\\Sigma}{$\Sigma$}1
+    {\\Upsilon}{$\Upsilon$}1
+    {\\Phi}{$\Phi$}1
+    {\\Psi}{$\Psi$}1
+    {\\Omega}{$\Omega$}1
+    {\\EOF}{\;}1
+    ,
+  sensitive=true,  % case sensitive
+  morecomment=[l]//,%
+  morecomment=[l]{--},%
+  morecomment=[s]{/*}{*/},%
+  morestring=[b]",
+  numbers=none,
+  firstnumber=1,
+  numberstyle=\tiny,
+  stepnumber=2,
+  basicstyle=\scriptsize\ttfamily,
+  commentstyle=\itshape,
+  keywordstyle=\bfseries,
+  ndkeywordstyle=\bfseries,
+}
+
+\lstset{ % General setup for the package
+	language=alloy,
+	basicstyle=\small\sffamily,
+	numbers=left,
+    backgroundcolor=\color{lightgray},
+ 	numberstyle=\tiny,
+	frame=tb,
+	tabsize=4,
+	columns=fixed,
+	showstringspaces=false,
+	showtabs=false,
+	keepspaces,
+	commentstyle=\color{red},
+	keywordstyle=\color{blue}
+}
+% End of Alloy highlights
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+
+\title{Requirements Analysis and Specifications Document}
+\author{Software Engineering 2}
+\date{November 13,2016}
+
+\begin{document}
+\maketitle
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=300 pt]{resources/polimi.png}
+  \label{fig:polimi}
+\end{figure}
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Authors:}\\
+B \textsc{A}\\
+B \textsc{A}\\
+B \textsc{A}
+\end{flushleft}
+\end{minipage}
+
+\pagenumbering{gobble}
+\newpage
+\pagenumbering{arabic}
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+bla bla
+\subsection{Goals}
+
+%\textbf{Clients :}
+\begin{enumerate}
+\item A client can register to the system by providing an e-mail, any valid payment method and a photo of his driving license.
+
+\item A client can log in in to system.
+
+%\item 2 The system ,after verifies that the information of a new user are valid, send them a password and allow the user for rent a car.
+%\item 2 bis : The system complete the registration and send back a password only if the user can be able to drive the proposed cars.
+
+\item Clients can display available cars with the remaining charge near their current location (or a chosen address) with a maximum specified distance.Clients can display safe areas on a map and charging stations.
+
+\item If Clients don’t have another active reservation they can choose a car that fit most their needs and reserve it for up one hour.
+
+\item A client can start the renting opening a car that has reserved previously when he/she is in the near by.
+
+\item During the rent a client can display the amount of money charged.%we must define "rent" in the glossary  
+
+\item Guarantee as many available cars as possible encouraging clients to have a virtuous and eco-friendly behavior applying fees and discounts. %TODO : glossary good behavior
+
+\item A client can leave the car in any safe area.Allows the client to end the rental.
+
+\item Clients can report eventual damages made by themselves or by users that have driven the car before.
+
+\item Clients can set the money saving option that suggest a charging station based on the car distribution and the destination selected by the client.
+
+%\item Clients can communicate eventual car accidents or malfunctions.
+
+\end{enumerate}
+
+\begin{comment}
+
+\textbf{Operator: }
+\begin{enumerate}
+
+\item Operators can see the status, charge level and location about all the cars.
+
+\item Operators can open cars and drive them without paying.
+
+\item Operators can set a car not available for maintenance proposes.   
+
+\item Operators can display a list of cars that have a percentage of charge lower than 20\%.
+
+\end{enumerate}
+\end{comment}
+
+\newpage
+
+\begin{comment}
+Which user groups are supported by the system to perform their work?
+Which user groups execute the system’s main functions?
+Which user groups perform secondary functions such as maintenance and administration?
+With what external hardware or software system will the system-to-be interact?
+What are the primary tasks that the system needs to perform?
+What data will the actor create, store, change, remove or add in the system?
+What external changes does the system need to know about?
+What changes or events will the actor of the system need to be informed about?
+\end{comment}
+
+\section{Scenarios}
+\input{scenario.tex}
+
+\begin{abstract}
+Your abstract.
+\end{abstract}
+
+\section{Some examples to get started}
+
+\subsection{Alloy}
+\lstinputlisting{resources/alloy.txt}
+
+\begin{comment}
+\end{}
+\begin{lstlisting}
+// A file system object in the file system
+abstract sig FSObject { }
+sig File, Dir extends FSObject { }
+
+// A File System
+sig FileSystem {
+  root: Dir,
+  live: set FSObject,
+  contents: Dir lone-> FSObject,
+  parent: FSObject ->lone Dir
+}{
+  // root has no parent
+  no root.parent
+  // live objects are reachable from the root
+  live in root.*contents
+  // parent is the inverse of contents
+  parent = ~contents
+}
+
+pred example { }
+
+run example for exactly 1 FileSystem, 4 FSObject
+\end{lstlisting}
+\end{comment}
+
+\subsection{How to include Figures}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{resources/polimi.png}
+\caption{\label{fig:frog}This was uploaded via the project menu.}
+\end{figure}
+
+\subsection{How to add Tables}
+
+Use the table and tabular commands for basic tables --- see Table~\ref{tab:widgets}, for example. 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|r}
+Item & Quantity \\\hline
+Widgets & 42 \\
+Gadgets & 13
+\end{tabular}
+\caption{\label{tab:widgets}An example table.}
+\end{table}
+
+\subsection{How to write Mathematics}
+
+\LaTeX{} is great at typesetting mathematics. Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
+\[S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+      = \frac{1}{n}\sum_{i}^{n} X_i\]
+denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$.
+
+\subsection{How to add Citations and a References List}
+
+You can upload a \verb|.bib| file containing your BibTeX entries, created with JabRef; or import your \href{https://www.overleaf.com/blog/184}{Mendeley}, CiteULike or Zotero library as a \verb|.bib| file. You can then cite entries from it, like this: \cite{greenwade93}. Just remember to specify a bibliography style, as well as the filename of the \verb|.bib|.
+
+You can find a \href{https://www.overleaf.com/help/97-how-to-include-a-bibliography-using-bibtex}{video tutorial here} to learn more about BibTeX.
+
+We hope you find Overleaf useful, and please let us know if you have any feedback using the help menu above --- or use the contact form at \url{https://www.overleaf.com/contact}!
+
+\bibliographystyle{alpha}
+\bibliography{sample}
+
+\end{document}
