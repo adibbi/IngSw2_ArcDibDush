@@ -1,0 +1,321 @@
+\subsection{Register to PowerEnJoy}
+%
+\textbf{Actors:}
+Guest\\
+%
+\textbf{Entry Conditions:}
+A guest enters in the registration section.\\ 
+%
+\textbf{Flow of events:}
+\begin{enumerate}
+\item The guest fills the form with his personal information. 
+\item The guest uploads ID and driver license pictures. The guest fills the payment method form with his credit or prepaid card's information. 
+\item PowerEnJoy verifies the correctness of the input data and sends an email to the guest with his password and a pin necessary to start the renting. 
+\item The guest confirms the registration throw the link and logs-in for the first time.
+\item PowerEnJoy registers the guest as a new client. 
+\end{enumerate}
+%
+\textbf{Exit Conditions:}
+Guest successfully ends registration process and becomes a Client. From now on he can log in to the application using his credential and use the PowerEnJoy service. \\ 
+%
+\textbf{Exceptions:}
+\begin{itemize}
+\item If the guest inserts not valid data PowerEnJoy doesn't allow to complete the registration.
+\item If the guest inserts and already used Email.
+\\
+\\In these 2 cases PowerEnJoy highlights the not valid fields and allows the guest to try again.
+\item The system does not allow an existing user to register a second time.
+\item If the Guest does not confirm his email within 48 hours PowerEnJoy cancels the request of registration and notifies that to the guest with an email.
+\end{itemize}
+%
+\textbf{Special Requirements:}
+\begin{itemize}
+\item After the registration the client must be able to use the service after no longer than 5 minutes.
+\item After that the user sends his document he must receive an email feedback with the confirmation link in no more than 10 minutes.
+\item The communication of sensible data is made throw a protected channel.
+\end{itemize}
+
+%\Denis : 1. The visitor is already a user.  4. Email choosen is already associated to another user.
+
+
+
+\subsection{Display a map information}
+%
+\textbf{Actors:}
+User\\
+%
+\textbf{Entry Conditions:}
+Entering in the map section. \\
+%
+\textbf{Flow of events:}
+\begin{enumerate}
+\item User sends his GPS position or selects an address on the map, and specifies a maximum distance from this point.
+\item PowerEnJoy sends the data about the part of map requested like location of available cars, location of charging areas and boundary of safe areas. %\Denis :displays al posto di send
+\item User requests information about one selected car.
+\item PowerEnJoy sends back requested information like remaining charge and car model.
+\item User displays requested information in a car information menu.
+\item User returns to map section and selects a charging station.
+\item PowerEnJoy sends back the total number of charging spot, and how many are free.
+\end{enumerate}
+%
+\textbf{Exit Conditions:}
+Exit from the map section, or a start of a reservation. \\
+%
+\textbf{Exceptions:}
+\begin{itemize}
+\item If User doesn't obtain a valid GPS signal, PowerEnJoy uses a default position like the center of city.
+\item If User requests information about a car no more available, PowerEnJoy doesn't send any information about this, and all location of displayed cars are refreshed. 
+\item If User selects an address out of city, PowerEnJoy uses a default position.
+\end{itemize}
+%
+\textbf{Special Requirements:}
+\begin{itemize}
+\item The map will refresh every 10 seconds.
+\end{itemize}
+
+
+\subsection{Log-in}
+%
+\textbf{Actors:}
+Client\\
+%
+\textbf{Entry Conditions:}
+A client enters in the log-in section.\\
+%
+\textbf{Flow of events:}
+\begin{enumerate}
+\item The client enters his credentials.
+\item PowerEnJoy verifies the correctness of the credentials.
+\item PowerEnJoy redirects the client to the map section.
+\end{enumerate}
+%
+\textbf{Exit Conditions:}
+Client is logged in the system.\\
+%
+\textbf{Exceptions:}
+\begin{itemize}
+\item The client inserts not valid credentials.PowerEnJoy notifies him that an error and allows him to enter his email and password again.
+\end{itemize}
+%
+\textbf{Special Requirements:}
+\begin{itemize}
+\item The system should provide a feedback in 10 seconds.
+\end{itemize}
+
+
+\subsection{Reserve a car}
+%
+\textbf{Actors:}
+Client\\
+%
+\textbf{Entry Conditions:}
+A client clicks the Reserve button in the car information menu.\\
+%
+\textbf{Flow of events:}
+\begin{enumerate}
+\item PowerEnJoy sets the car as reserved.
+\item The client receives the confirmation of the reservation.
+\item The client checks the remaining time of the reservation.  
+\end{enumerate}
+%
+\textbf{Exit Conditions:}
+The car is no longer available, the client has now a renting in progress.\\
+%
+\textbf{Exceptions:}
+\begin{itemize}
+\item The client doesn't have the permission to reserve a car.
+\item The client has yet canceled a reservation on the same car in the last 2 hours. 
+\item The car is no longer available.
+\end{itemize}
+In all of these cases the reservation process is not performed and the user is redirected to the map section. \\
+%
+\textbf{Special Requirements:}
+\begin{itemize}
+\item The system should provide a feedback in 10 seconds.
+\end{itemize}
+
+
+\subsection{Open a car}
+%
+\textbf{Actors:}
+Client \\
+%
+\textbf{Entry Conditions:}
+Client has done a reservation. \\
+%
+\textbf{Flow of events:}
+\begin{enumerate}
+\item Client moves to a car location, within an hour from the reservation.
+\item Once he is arrived, he can push the open button from the application.
+\item PowerEnJoy verifies if the client is  releases the block system of the car.
+\item Client opens the car within a minute.
+\end{enumerate}
+%
+\textbf{Exit Conditions:}
+Client starts the rent. \\
+%
+\textbf{Exceptions:}
+\begin{itemize}
+\item If the client doesn't reach the car before one hour, PowerEnJoy deletes the reservation and applies a fee of 1 Euro.
+\item If the client tries to open the car while he is far from the car or he has not GPS signal, PowerEnJoy doesn't unlock the car.
+\end{itemize}
+%
+\textbf{Special Requirements:}
+\begin{itemize}
+\item PowerEnJoy unlocks the car within a minute from the request.
+\end{itemize}
+
+
+
+\subsection{Start the rent}
+%
+\textbf{Actors:}
+Client \\
+%
+\textbf{Entry Conditions:}
+The system has opened the car.\\
+%
+\textbf{Flow of events:}
+\begin{enumerate}
+\item The Client inserts the pin.
+\item The sistem after checking the correctness of the pin enables the possibility to turn on the engine.
+\item The Client turns on the engine.
+\item The Client selects his destination.
+\item The car system shows the route and the current cost.
+\item The Client starts moving to his destination.
+\item The Client sees in real time how much he is spending.
+\end{enumerate}
+\textbf{Exit Conditions:}
+The Client is driving the rented car.\\
+%
+\textbf{Exceptions:}
+\begin{itemize}
+\item If the charge of the car is lower then 15\% the car system signals to park the car immediately.
+\item If the client continues driving until the car battery is empty the system applies a fee of 100 euros to the client.
+\item If the rent takes more than 1 day the system signals the case to the operators system.
+\end{itemize}
+%
+\textbf{Special Requirements:}
+There are no special Requirements.
+
+
+
+\subsection{End the rent}
+%
+\textbf{Actors:}
+Client \\
+%
+\textbf{Entry Conditions:}
+Client reaches the destination. \\
+%
+\textbf{Flow of events:}
+\begin{enumerate}
+\item Client parks the car in a safe area and turn off the engine.
+\item Client pushes the button for terminate the rent and exits from the car.
+\item PowerEnJoy receives the request,checks if the car is parked in a safe area and, after one minute, locks the door of the car.
+\item PowerEnJoy charges the client after 5 minutes to give the possibility to plug the car applying eventual discounts.
+\end{enumerate}
+%
+\textbf{Exit Conditions:}
+The car is set as available. \\
+%
+\textbf{Exceptions:}
+\begin{itemize}
+\item If the client tries to release the car out of a safe area, the system doesn't allow the end of rent.
+\item If the client doesn't have enough money to pay the rent, PowerEnJoy disables the client account until the debt is absolved.
+\item If the client doesn't exit from the car after one minute , the system doesn't lock the car doors and doesn't terminate the rent.
+\end{itemize}
+%
+\textbf{Special Requirements:}
+There are no special Requirements.
+
+
+
+
+
+\subsection{Plug the car}
+%
+\textbf{Actors:}
+Client \\
+%
+\textbf{Entry Conditions:}
+The Client parks the car in a charging station with free plugs and end the rent. \\
+%
+\textbf{Flow of events:}
+\begin{enumerate}
+\item The Client opens the charging slot of the car.
+\item The Client plugs the plug to the car.
+\item The car system applies a discount of 30\% to the last rent.
+\end{enumerate}
+%
+\textbf{Exit Conditions:}
+The car is correctly plugged - in and is recharging.\\
+%
+\textbf{Exceptions:}
+If the client plugs the car after 5 minutes doesn't apply the discount\\
+%
+\textbf{Special Requirements:}
+There are no Special Requirements.
+
+
+
+
+\subsection{Report abuse}
+%
+\textbf{Actors:}
+Client \\
+%
+\textbf{Entry Conditions:}
+Client enters in a damaged or dirty car.\\
+%
+\textbf{Flow of events:}
+\begin{enumerate}
+\item A Client who notices that the car is damaged or dirty before starting the rent can report it by clicking the "Report damaged/dirty car" button.
+\item PowerEnJoy redirects the client to a form where he has to indicate:
+\begin{itemize}
+\item Type of Abuse : "Damaged" or "Dirty" 
+\item Gravity of the problem : from 0 to 5
+\end{itemize}
+\item PowerEnJoy signals the case to the operators system.
+\item PowerEnJoy proposes to the client two alternatives :
+\begin{itemize}
+\item "Continue rent"
+\item "End rent"
+\end{itemize}
+\item The client selects the desired choice.
+\end{enumerate}
+%
+\textbf{Exit Conditions:}
+The car is set unavailable.  \\
+\textbf{Exceptions:}
+ There are not exceptions. \\
+\textbf{Special Requirements:}
+ There are not Special Requirements\\
+
+\subsection{Select money saving option}
+%
+\textbf{Actors:}
+Client \\
+%
+\textbf{Entry Conditions:}
+The Client selects the save mode option in the car display\\
+%
+\textbf{Flow of events:}
+\begin{enumerate}
+\item The system estimates which is the most suitable charging station based on the city car distribution and the location chosen by the client. 
+\item The car system suggests some possible charging stations.
+\item The client selects one of the suggested charging stations.
+\end{enumerate}
+%
+\textbf{Exit Conditions:}
+The car system starts the navigation to the chosen charging station. \\
+%
+\textbf{Exceptions:}
+\begin{itemize}
+\item If the client doesn't like any of the suggested charging stations he can undo the action and proceed with the normal mode.
+\end{itemize}
+%
+\textbf{Special Requirements:}
+\begin{itemize}
+\item The system should provide feedback within 10 seconds.
+\end{itemize}

@@ -136,13 +136,28 @@
   \label{fig:polimi}
 \end{figure}
 
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+
 \begin{minipage}{0.4\textwidth}
 \begin{flushleft} \large
 \emph{Authors:}\\
-B \textsc{A}\\
-B \textsc{A}\\
-B \textsc{A}
+Claudio Salvatore \textsc{Arcidiacono}\\
+Antonio \textsc{Di Bello}\\
+Denis \textsc{Dushi}
 \end{flushleft}
+\end{minipage}
+
+\begin{minipage}{0.4\textwidth}
+
 \end{minipage}
 
 \pagenumbering{gobble}
@@ -157,26 +172,23 @@ B \textsc{A}
 bla bla
 \subsection{Goals}
 
-%\textbf{Clients :}
 \begin{enumerate}
 \item A client can register to the system by providing an e-mail, any valid payment method and a photo of his driving license.
 
-\item A client can log in in to system.
+\item A client can access to his profile.
 
-%\item 2 The system ,after verifies that the information of a new user are valid, send them a password and allow the user for rent a car.
-%\item 2 bis : The system complete the registration and send back a password only if the user can be able to drive the proposed cars.
-
-\item Clients can display available cars with the remaining charge near their current location (or a chosen address) with a maximum specified distance.Clients can display safe areas on a map and charging stations.
+\item Allows clients to obtain information about
+the position of available cars, safe areas and charging stations; about the remaining charge of cars and the available plugs of the charging stations.
 
 \item If Clients don’t have another active reservation they can choose a car that fit most their needs and reserve it for up one hour.
 
 \item A client can start the renting opening a car that has reserved previously when he/she is in the near by.
 
-\item During the rent a client can display the amount of money charged.%we must define "rent" in the glossary  
+\item During the rent a client can display the amount of money charged.
 
-\item Guarantee as many available cars as possible encouraging clients to have a virtuous and eco-friendly behavior applying fees and discounts. %TODO : glossary good behavior
+\item Guarantee as many available cars as possible encouraging clients to have a virtuous and eco-friendly behavior applying fees and discounts.
 
-\item A client can leave the car in any safe area.Allows the client to end the rental.
+\item Allows the client to end the rental and leave the car in any safe area.
 
 \item Clients can report eventual damages made by themselves or by users that have driven the car before.
 
@@ -186,74 +198,51 @@ bla bla
 
 \end{enumerate}
 
-\begin{comment}
 
-\textbf{Operator: }
-\begin{enumerate}
+\subsection{Domain assumption}
+We suppose that these properties hold in the analyzed world :
+\begin{itemize}
+\item All cars have a stable GPS signal.
+\item Clients shares their position when they use the application.
+\item PowerEnJoy always has updated data about all the cars and the power stations.
+\item The power grid always guarantees electric power.
+\item The only method to enter in a car is by the doors.
+\item Client knows how to drive a car.
+\item The company cars have at least 4 seats.
+\item The streets are correctly mapped in the system.
+\item All cars have stable internet connection.
+\item The charging sensor reflects the real charge of the car in real-time.
+\item The real charge of parked cars stays the same over time. 
+\end{itemize}
 
-\item Operators can see the status, charge level and location about all the cars.
 
-\item Operators can open cars and drive them without paying.
-
-\item Operators can set a car not available for maintenance proposes.   
-
-\item Operators can display a list of cars that have a percentage of charge lower than 20\%.
-
-\end{enumerate}
-\end{comment}
+\newpage
+\section{Requirements}
+\input{requirements.tex}
 
 \newpage
 
-\begin{comment}
-Which user groups are supported by the system to perform their work?
-Which user groups execute the system’s main functions?
-Which user groups perform secondary functions such as maintenance and administration?
-With what external hardware or software system will the system-to-be interact?
-What are the primary tasks that the system needs to perform?
-What data will the actor create, store, change, remove or add in the system?
-What external changes does the system need to know about?
-What changes or events will the actor of the system need to be informed about?
-\end{comment}
+\section{Glossary}
+\input{glossary.tex}
+
+\section{Actor}
+
+\newpage
 
 \section{Scenarios}
 \input{scenario.tex}
 
-\begin{abstract}
-Your abstract.
-\end{abstract}
+\newpage
+\section{Use Cases Description}
+\input{use_cases_description.tex}
 
-\section{Some examples to get started}
-
-\subsection{Alloy}
+\newpage
+\section{Alloy}
 \lstinputlisting{resources/alloy.txt}
 
-\begin{comment}
-\end{}
-\begin{lstlisting}
-// A file system object in the file system
-abstract sig FSObject { }
-sig File, Dir extends FSObject { }
 
-// A File System
-sig FileSystem {
-  root: Dir,
-  live: set FSObject,
-  contents: Dir lone-> FSObject,
-  parent: FSObject ->lone Dir
-}{
-  // root has no parent
-  no root.parent
-  // live objects are reachable from the root
-  live in root.*contents
-  // parent is the inverse of contents
-  parent = ~contents
-}
 
-pred example { }
-
-run example for exactly 1 FileSystem, 4 FSObject
-\end{lstlisting}
-\end{comment}
+\section{Some examples to get started}
 
 \subsection{How to include Figures}
 
