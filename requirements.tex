@@ -1,3 +1,4 @@
+\subsection{Functional requirement}
 \begin{enumerate}
 \item A client can register to the system by providing an e-mail, valid payment information and a photo of his driving license.
 \begin{enumerate}
@@ -29,7 +30,7 @@ the position of available cars(position and remaining charge), safe areas(bounda
 \end{enumerate}
 
 
-\item Allows the client to reserve a car that fits most their needs.
+\item Allows clients to reserve a car that fits most their needs.
 \begin{enumerate}
 \item  The system should not allow a client to reserve more than one car simultaneously.
 \item The system must not show in on the map the car reserved. 
@@ -39,18 +40,18 @@ the position of available cars(position and remaining charge), safe areas(bounda
 \item The system should provide to the client the possibility to cancel the reservation.
 \item The system must set available a car when its reservation is canceled.
 \item A user that cancel a reservation can't reserve the same car within 15 minutes from the cancellation.
-\item The system must terminate the reservation when the client starts the renting.
+\item The system must terminate the reservation when the client starts the rent.
 \end{enumerate}
 
 
-\item A client can start the renting opening a car that has reserved previously when he/she is in the near by.
+\item A client can start the rent opening a car that has reserved previously when he/she is in the near by.
 
 \begin{enumerate}
 \item The system should be able to know the user GPS position.
 \item The system should permit a client to request the opening of a car if and only if there is an active reservation of that user for that car and the user GPS position is not farther than 15 meters from the car GPS position.
 \item The system should make possible to start the engine if and only if the user have inserted the correct pin.
 \item After the client authentication the system should provide a function to insert the destination and eventually select the saving mode option. 
-\item The system must start the renting right after the car doors are unlocked.
+\item The system must start the rent right after the car doors are unlocked.
 \end{enumerate}
 
 \item During the rent a client can display the amount of money charged.
@@ -73,7 +74,7 @@ the position of available cars(position and remaining charge), safe areas(bounda
 \end{enumerate}
 	
 
-\item Allows the client to end the rental and leave the car in any safe area.
+\item Allows clients to end the rent and leave the car in any safe area.
 \begin{enumerate}
 \item The Display of the car system should provide a section that permits the user to end the rent.
 \item The system should allow a client to end the rent if and only if the client clicks the "end rent" button and the car GPS position is inside a safe area.
@@ -86,7 +87,7 @@ the position of available cars(position and remaining charge), safe areas(bounda
 \begin{enumerate}
 \item The system must provide a section where the client can specify the entity of damage or the level of dirty.
 \item The system must implement the possibility of communicate with an external operator system.
-\item The system must allow the client to immediately finish the rent without apply any cost. (Forse no , se hai acceso il motore cazzi tuoi)
+\item The system must allow the client to immediately finish the rent without apply any cost. 
 \item The system should be able to find the last user that used a car.
 \item The system must allow the client to not start the rent, without apply any penalties in case of damages.
 \end{enumerate}
@@ -97,3 +98,46 @@ the position of available cars(position and remaining charge), safe areas(bounda
 \item When the saving money option is enabled the system must will information about the charging station, where to leave and plug the car, based on the destination selected, the availability of power plugs and the distribution of cars in the city.
 \end{enumerate}
 \end{enumerate}
+
+\subsection{Non functional requirement}
+Users can interact with our system through the mobile application, the website and the display located inside the car.
+
+\subsubsection{View available car information in mobile application} This mockup shows how the information of an available car (charge level and distance from the client) can be displayed on the mobile app. The logged client has the possibility to reserve the car by tapping on the "Reserve" button.
+\begin{figure}[h]
+\centering
+\includegraphics[width=400 pt]{resources/editato.jpg}
+\caption{\label{fig:editato}View available car information in mobile application.}
+\end{figure}
+
+\subsubsection{View map on the website} This mockup shows the map that a generic user (guest or client) can see on the PowerEnJoy website.On the map are displayed the boundaries of the safe area in which a client can leave the car and the charging stations with the number of available charging spots.The user can insert an address in order to see the available cars within a certain distance.
+\begin{figure}[h]
+\centering
+\includegraphics[width=450 pt]{resources/mappa.jpg}
+\caption{\label{fig:mappa}View map on the website.}
+\end{figure}
+
+\subsubsection{Registration form} The mockup above shows the registration procedure that a guest has to complete in order to become a client and have access to the PowerEnJoy car sharing.
+
+\begin{figure}[h]
+\centering
+\includegraphics[height=200 pt]{resources/registrazione.jpg}
+\caption{\label{fig:reg}Registration form.}
+\end{figure}
+
+\subsubsection{Insert pin on the car display} This mockup shows the form in which the client has to insert his pin. After inserting the correct pin the client can start the engine of the car.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=400 pt]{resources/nav68.jpg}
+\caption{\label{fig:pin}Insert pin on the car display.}
+\end{figure}
+
+\subsection{The world and the machine}
+
+“The World and the Machine” model by M. Jackson and P. Zave is useful to identify the entities in the portion of system that has to be developed (\textbf{The Machine}) , the entities inside the portion of the real-world affected by the Machine (\textbf{The World}), and all  the \textbf{Shared Phenomena} that are controlled by the world and observed by the machine  or controlled by the machine and observed by the world.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=400 pt]{resources/worldMachine.png}
+\caption{\label{fig:WandM}The World and the Machine.}
+\end{figure}

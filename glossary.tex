@@ -1,26 +1,42 @@
-\textbf{Guest}
-A Guest is a user that access for the first time to the platform.\\
-\textbf{Client}
-A registered User.\\
+\textbf{Guest:}
+ is an user that is not registered yet to PowerEnJoy.\\
+\textbf{Client:}
+is an user that has completed successfully the registration procedure .\\
+\textbf{Logged client:}
+is a client that has logged into PowerEnJoy .\\
 \textbf{User:}
 a client or a guest.\\
-\textbf{Virtuous  behavior}
-asdasdasdad.\\
-\textbf{Rent:}
+\textbf{Virtuous  behaviour:}
+the client has a "Virtuous behaviour" if he performs one or more of the following actions : 
+\begin{itemize}
+\item transport at least other two passengers onto the car
+\item leaves the car with less than 50 \% of the battery empty
+\item plugs the car into the power grid of a charging station
+\end{itemize}
+.\\
+\textbf{Rent:} defines the period of time that starts when the logged client opens the car and ends when the door of the car are locked due to a "end rent" request of the logged client . %\ in realtà è una tupla (Logged User, Car , Unlock door time, Lock Door time)
 \\
 \textbf{Map Information:}
-information displayed on the map...\\
+denotes the following information : 
+\begin{itemize}
+\item location of available cars
+\item location of charging areas 
+\item for each charging area the number of available charging spot
+\item boundaries of safe areas 
+\end{itemize}
+.\\
 \textbf{Not valid data:}
-during the registration ( ex: email yet used by an other user )\\
+syntactically incorrect data (e.g mail not in the format local-part@domain)\\
 \textbf{Credentials:}
-email and password in the registration area.\\
+email and password used to log into PowerEnJoy.\\
 \textbf{Valid Credentials:}
-an email registered and its password.\\
+email and password possessed by a registered user.\\
 \textbf{Car information Menu:}
-The menu that is displayed when a client select a car on the map. In this menu are displayed the information about the car and a button that can be used to reserve the car.\\
+displayed when a client select a car on the map. In this menu are displayed the information about the car (remaining charge percentage and license plate number) and a button that can be used to reserve the car.\\
 \textbf{Safe Areas:} 
+areas in which is permitted to the client to end the rent and leave the car.
 \\
-\textbf{Valid Payment methods:} 
+\textbf{Valid Payment Information:}Credit or prepaid card with at least a minimum amount of money.
 \\
-\textbf{User authentication:}
-\\
+\subsection{Synonymous}
+\input{synonymous.tex}

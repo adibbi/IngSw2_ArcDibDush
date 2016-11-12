@@ -1,0 +1,75 @@
+
+\subsection{Description of the given problem}
+We will project and implement PowerEnJoy, which is a digital management system for a car-sharing service that exclusively employs electric cars.
+The system that will be developed has to allow users to register and log in to the service, to see which car are available and were the cars can be parked. In addition to the basic functionalities of a car-sharing service the system has to incentivize virtuous behaviors of the users, like plugging the car to a charging station or leaving the car with enough charge, in order to have as much as possible a self-sustainable service.
+
+\subsection{Goals}
+
+\begin{enumerate}
+\item A client can register to the system by providing an e-mail, valid payment information and a photo of his driving license.
+
+\item A client can log in into system.
+
+\item Allows clients to obtain information about available cars(position and remaining charge), safe areas(boundaries) and charging stations (position and available plugs).
+
+\item Allows clients to reserve a car that fits most their needs.
+
+\item A client can start the rent opening a car that has reserved previously when he/she is in the near by.
+
+\item During the rent a client can display the amount of money charged.
+
+\item Guarantee as many available cars as possible encouraging clients to have a virtuous and eco-friendly behavior applying fees and discounts.
+
+\item Allows clients to end the rent and leave the car in any safe area.
+
+\item Clients can report eventual damages made by users that have driven the car before. %damaged and dirty cars 
+
+\item Clients can set the money saving option.
+
+
+\end{enumerate}
+
+
+\subsection{Domain assumption}
+We suppose that these properties hold in the analyzed world :
+\begin{itemize}
+\item All cars have a stable GPS signal.
+\item Clients shares their position when they use the application.
+\item PowerEnJoy always has updated data about all the cars and the power stations.
+\item The power grid always guarantees electric power.
+\item The only method to enter in a car is by the doors.
+\item The company cars have at least 4 seats.
+\item The streets are correctly mapped in the system.
+\item All cars have stable internet connection.
+\item The charging sensor reflects the real charge of the car in real-time.
+\item The real charge of parked cars stays the same over time. 
+\item  Charging stations are not in the same GPS position.
+\item  There aren't two clients with the same  personal data.
+\end{itemize}
+
+\newpage
+
+\subsection{Glossary}
+\input{glossary.tex}
+
+\subsection{Interfaces to external applications}
+The PowerEnJoy system interacts with the following external systems:
+\begin{itemize}
+\item \textbf{Operators system}: to share with operators information about the rental chronology, the cars position and remaining charge and reports of damaged/dirty car for maintenance and legal purposes. 
+\item  \textbf{Civil registry office}: to obtain user profile information from ID number.
+\item \textbf{Transport authority}:  to obtain user profile information from license number.
+\item \textbf{Payment gateway}: to verify the validity of the payment information and to charge the clients. 
+\end{itemize}
+
+
+\subsection{Reference Documents}
+\begin{itemize}
+\item Specification Document: Assignments AA 2016-2017.pdf
+\item  IEEE Std 830-1998 IEEE Recommended Practice for Software Requirements
+Specifications.
+\item  Examples documents:  
+\begin{itemize}
+\item MeteoCal RASD example2.pdf
+\item RASD sample from Oct. 20lecture.pdf 
+\end {itemize}
+\end {itemize}

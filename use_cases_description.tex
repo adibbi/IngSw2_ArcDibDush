@@ -1,4 +1,4 @@
-\subsection{Register to PowerEnJoy}
+\subsubsection{Register to PowerEnJoy}
 %
 \textbf{Actors:}
 Guest\\
@@ -9,8 +9,9 @@ A guest enters in the registration section.\\
 \textbf{Flow of events:}
 \begin{enumerate}
 \item The guest fills the form with his personal data, the number of his ID card and the number of the driving license. 
-\item The guest uploads ID and driver license pictures. The guest fills the payment method form with his credit or prepaid card's information. 
-\item PowerEnJoy verifies the correctness of the input data and sends an email to the guest with his password and a pin necessary to start the renting. 
+\item The guest uploads ID and driver license pictures.
+\item  The guest fills the payment method form with his credit or prepaid card's information. 
+\item PowerEnJoy verifies the correctness of the data and sends an email to the guest with his password and a pin necessary to start the rental. 
 \item The guest confirms the registration throw the link and logs-in for the first time.
 \item PowerEnJoy registers the guest as a new client. 
 \end{enumerate}
@@ -39,7 +40,7 @@ Guest successfully ends registration process and becomes a Client. From now on h
 
 
 
-\subsection{Display a map information}
+\subsubsection{Display a map information}
 %
 \textbf{Actors:}
 User\\
@@ -50,12 +51,15 @@ Entering in the map section. \\
 \textbf{Flow of events:}
 \begin{enumerate}
 \item User sends his GPS position or selects an address on the map, and specifies a maximum distance from this point.
-\item PowerEnJoy sends the data about the part of map requested like location of available cars, location of charging areas and boundary of safe areas. %\Denis :displays al posto di send
+\item PowerEnJoy displays the data about the part of map requested: 
+\begin{itemize}
+\item location of available cars
+\item location of charging areas and number of available charging spot
+\item boundaries of safe areas 
+\end{itemize}
 \item User requests information about one selected car.
-\item PowerEnJoy sends back requested information like remaining charge and car model.
-\item User displays requested information in a car information menu.
-\item User returns to map section and selects a charging station.
-\item PowerEnJoy sends back the total number of charging spot, and how many are free.
+\item PowerEnJoy sends back the remaining charge percentage and the license plate number of the selected car .
+\item User can see the requested information in a car information menu.
 \end{enumerate}
 %
 \textbf{Exit Conditions:}
@@ -74,7 +78,7 @@ Exit from the map section, or a start of a reservation. \\
 \end{itemize}
 
 
-\subsection{Log-in}
+\subsubsection{Log-in}
 %
 \textbf{Actors:}
 Client\\
@@ -103,10 +107,10 @@ Client is logged in the system.\\
 \end{itemize}
 
 
-\subsection{Reserve a car}
+\subsubsection{Reserve a car}
 %
 \textbf{Actors:}
-Client\\
+Logged Client\\
 %
 \textbf{Entry Conditions:}
 A client clicks the Reserve button in the car information menu.\\
@@ -119,7 +123,7 @@ A client clicks the Reserve button in the car information menu.\\
 \end{enumerate}
 %
 \textbf{Exit Conditions:}
-The car is no longer available, the client has now a renting in progress.\\
+The car is no longer available, the client has now a rent in progress.\\
 %
 \textbf{Exceptions:}
 \begin{itemize}
@@ -135,10 +139,10 @@ In all of these cases the reservation process is not performed and the user is r
 \end{itemize}
 
 
-\subsection{Open a car}
+\subsubsection{Open a car}
 %
 \textbf{Actors:}
-Client \\
+Logged Client \\
 %
 \textbf{Entry Conditions:}
 Client has done a reservation. \\
@@ -167,10 +171,10 @@ Client starts the rent. \\
 
 
 
-\subsection{Start the rent}
+\subsubsection{Start the rent}
 %
 \textbf{Actors:}
-Client \\
+Logged Client \\
 %
 \textbf{Entry Conditions:}
 The system has opened the car.\\
@@ -200,10 +204,10 @@ There are no special Requirements.
 
 
 
-\subsection{End the rent}
+\subsubsection{End the rent}
 %
 \textbf{Actors:}
-Client \\
+Logged Client \\
 %
 \textbf{Entry Conditions:}
 Client reaches the destination. \\
@@ -231,12 +235,10 @@ There are no special Requirements.
 
 
 
-
-
-\subsection{Plug the car}
+\subsubsection{Plug the car}
 %
 \textbf{Actors:}
-Client \\
+Logged Client \\
 %
 \textbf{Entry Conditions:}
 The Client parks the car in a charging station with free plugs and end the rent. \\
@@ -259,11 +261,10 @@ There are no Special Requirements.
 
 
 
-
-\subsection{Report abuse}
+\subsubsection{Report damaged/dirty car}
 %
 \textbf{Actors:}
-Client \\
+Logged Client \\
 %
 \textbf{Entry Conditions:}
 Client enters in a damaged or dirty car.\\
@@ -292,10 +293,10 @@ The car is set unavailable.  \\
 \textbf{Special Requirements:}
  There are not Special Requirements\\
 
-\subsection{Select money saving option}
+\subsubsection{Select money saving option}
 %
 \textbf{Actors:}
-Client \\
+Logged Client \\
 %
 \textbf{Entry Conditions:}
 The Client selects the save mode option in the car display\\
