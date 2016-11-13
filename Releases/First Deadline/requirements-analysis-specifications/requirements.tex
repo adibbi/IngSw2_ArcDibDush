@@ -35,8 +35,8 @@ the position of available cars(position and remaining charge), safe areas(bounda
 \item  The system should not allow a client to reserve more than one car simultaneously.
 \item The system must not show in on the map the car reserved. 
 \item The system must delete automatically the reservation after 1 hour.
-\item The system has to apply to the client a fee of 1 euro if the reservation lasts more than 1 hour.
-\item The system has to permits to reserve only available cars that are shown in the map.
+\item The system must apply to the client a fee of 1 euro if the reservation lasts more than 1 hour.
+\item The system must allow to reserve only available cars that are shown in the map.
 \item The system should provide to the client the possibility to cancel the reservation.
 \item The system must set available a car when its reservation is canceled.
 \item A user that cancel a reservation can't reserve the same car within 15 minutes from the cancellation.
@@ -48,7 +48,7 @@ the position of available cars(position and remaining charge), safe areas(bounda
 
 \begin{enumerate}
 \item The system should be able to know the user GPS position.
-\item The system should permit a client to request the opening of a car if and only if there is an active reservation of that user for that car and the user GPS position is not farther than 15 meters from the car GPS position.
+\item The system should permit a client to request the opening of a car only if there is an active reservation of that user for that car and the user GPS position is not more than 15 meters far from the car GPS position.
 \item The system should make possible to start the engine if and only if the user have inserted the correct pin.
 \item After the client authentication the system should provide a function to insert the destination and eventually select the saving mode option.
 \item The system must start the rent right after the car doors are unlocked.
@@ -62,7 +62,7 @@ the position of available cars(position and remaining charge), safe areas(bounda
 \item The system must refresh every minute the current cost of the rent, proportional to the passed minutes.
 \item The system must always show the current cost during the rent.
 \item The system must stop charging when the client turn off the engine, selects the "end rent" option and the car is parked in a safe area.
-\item The system must detect the moment when the client end the rent.
+\item The system must detect the moment when the client ends the rent.
 \end{enumerate}
 
 \item Guarantee as many available cars as possible encouraging clients to have a virtuous and eco-friendly behavior applying fees and discounts.
@@ -80,22 +80,22 @@ the position of available cars(position and remaining charge), safe areas(bounda
 \item The Display of the car system should provide a section that permits the user to end the rent.
 \item The system should allow a client to end the rent if and only if the client clicks the "end rent" button and the car GPS position is inside a safe area.
 \item After a minute from the end of the rent the system should lock the car doors.
-\item After 5 minutes from the end of the rent the system will charge the rent cost, proportional to the duration of the ride and reduced by eventual discounts.
+\item After 5 minutes from the end of the rent the system will charge the rent cost,which is proportional to the duration of the ride and takes into account eventual discounts.
 \item If the system tries to charge the user but the payment is unsuccessful the system blocks the log-in function of the user until the user doesn't absolve his debt. 
 \end{enumerate}
 
 \item Clients can report eventual damages made by users that have driven the car before.
 \begin{enumerate}
-\item The system must provide a section where the client can specify the entity of damage or the level of dirty.
-\item The system must implement the possibility of communicate with an external operator system.
+\item The system must provide a section where the client can specify the entity of damage or the level of dirt.
+\item The system must interface with an external operator system.
 \item The system should be able to find the last user that used a car.
-\item The system must allow the client to not start the rent, without apply any charge in case of damages.
+\item The system must allow the client to not start the rent and close the car, without applying any cost in case of damages.
 \end{enumerate}
 
 \item Clients can set the money saving option.
 \begin{enumerate}
 \item The system must provide the possibility to select the "saving option" during the rent.
-\item When the saving money option is enabled the system must give information about the charging station, where to leave and plug the car, based on the destination selected, the availability of power plugs and the distribution of cars in the city.
+\item When the saving money option is enabled the system must provide information about the charging station, where one can leave and plug the car. This information is based on the destination selected, the availability of power plugs and the distribution of cars in the city.
 \end{enumerate}
 \end{enumerate}
 
