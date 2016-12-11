@@ -20,14 +20,16 @@ Guest successfully ends registration process and becomes a Client. From now on h
 %
 \textbf{Exceptions:}
 \begin{itemize}
-\item If the guest inserts not valid data the system highlights the not valid fields and doesn't allow him to complete the registration.
-\item If the guest inserts an already used Email PowerEnJoy doesn't allow him to complete the registration.
+\item If the guest inserts not valid data.
+\item If the guest inserts and already used Email.
+\\
+\\In these 2 cases PowerEnJoy highlights the not valid fields and allows the guest to try again.
 \item The system does not allow an existing client to register a second time.
 \end{itemize}
 %
 \textbf{Special Requirements:}
 \begin{itemize}
-\item After the registration the client must be able to use the service after no more than 5 minutes.
+\item After the registration the client must be able to use the service after no longer than 5 minutes.
 \item After that the guest has filled the form, he must receive an email feedback with the password and pin within two hours.
 \item The communication of sensible data is made throw a protected channel.
 \end{itemize}
@@ -91,7 +93,7 @@ Exit from the map section, or a start of a reservation. \\
 \textbf{Exceptions:}
 \begin{itemize}
 \item If User doesn't obtain a valid GPS signal, PowerEnJoy uses a default position like the center of his preferred city.
-\item If User requests information about a car that is not available anymore, PowerEnJoy doesn't send any information about this car, and all the positions of displayed cars are refreshed.
+\item If User requests information about a car no more available, PowerEnJoy doesn't send any information about that, and all location of displayed cars are refreshed.
 \item If User selects an address out of city, PowerEnJoy uses a default position.
 \end{itemize}
 %
@@ -121,7 +123,7 @@ The car is no longer available, the client has now a rent in progress.\\
 %
 \textbf{Exceptions:}
 \begin{itemize}
-\item The client has already canceled a reservation on the same car in the last 15 minutes. 
+\item The client has yet canceled a reservation on the same car in the last 15 minutes. 
 \item The car is no longer available.
 \end{itemize}
 In all of these cases the reservation process is not performed and the user is redirected to the map section. \\
@@ -143,7 +145,7 @@ Client has done a reservation. \\
 \textbf{Flow of events:}
 \begin{enumerate}
 \item Client moves to a car location, within an hour from the reservation.
-\item Once he has arrived, he can push the open button from the application.
+\item Once he is arrived, he can push the open button from the application.
 \item PowerEnJoy verifies the client position and releases the car doors lock.
 \item Client opens the car within a minute.
 \end{enumerate}
@@ -153,7 +155,7 @@ Client starts the rent. \\
 %
 \textbf{Exceptions:}
 \begin{itemize}
-\item If the client doesn't reach the car within one hour, PowerEnJoy deletes the reservation and applies a fee of 1 Euro.
+\item If the client doesn't reach the car before one hour, PowerEnJoy deletes the reservation and applies a fee of 1 Euro.
 \item If the client tries to open the car while he is farther more than 15 meters from the car or he has not GPS signal, PowerEnJoy doesn't unlock the car door.
 \end{itemize}
 %
@@ -206,10 +208,10 @@ Client reaches the destination. \\
 %
 \textbf{Flow of events:}
 \begin{enumerate}
-\item Client parks the car in a safe area and turns off the engine.
-\item Client pushes the button to end the rent and exits the car.
+\item Client parks the car in a safe area and turn off the engine.
+\item Client pushes the button for terminate the rent and exits from the car.
 \item PowerEnJoy receives the request, checks if the car is parked in a safe area and, after one minute, locks the doors of the car and terminates the rent.
-\item PowerEnJoy charges the client after 5 minutes to give him the possibility to plug the car.
+\item PowerEnJoy charges the client after 5 minutes to give the possibility to plug the car, applying eventual discounts.
 \end{enumerate}
 %
 \textbf{Exit Conditions:}
@@ -217,7 +219,7 @@ The car is set as available. \\
 %
 \textbf{Exceptions:}
 \begin{itemize}
-\item If the client tries to leave the car out of a safe area, the system doesn't allow him to end the rent.
+\item If the client tries to release the car out of a safe area, the system doesn't allow the end of rent.
 \item If the client doesn't have enough money to pay the rent, PowerEnJoy disables the client account until the debt is absolved.
 \item If the client doesn't exit from the car after one minute, the system doesn't lock the car doors and doesn't terminate the rent.
 \end{itemize}
@@ -233,7 +235,7 @@ There are no special Requirements.
 Logged Client \\
 %
 \textbf{Entry Conditions:}
-The Client parks the car in a charging station with free plugs and ends the rent. \\
+The Client parks the car in a charging station with free plugs and end the rent. \\
 %
 \textbf{Flow of events:}
 \begin{enumerate}
