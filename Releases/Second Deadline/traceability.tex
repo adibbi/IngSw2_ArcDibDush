@@ -1,0 +1,67 @@
+The design decisions explained in this document have been made in order to satisfy all the goals and requirements presented in the RASD. 
+Below, we explain which components of the system have been chosen to satisfy our goals.
+
+
+
+\begin{itemize}
+\item [G1]A client can register to the system by providing an e-mail, valid payment information and a photo of his driving license.
+\begin{itemize}
+\item ClientApp
+\item UserController
+\end{itemize}
+
+\item [G2]A client can log in to system.
+\begin{itemize}
+\item ClientApp
+\item UserController
+\end{itemize}
+
+\item [G3]Allows clients to obtain information about available cars(position and remaining charge), safe areas(boundaries) and charging stations (position and available plugs).
+\begin{itemize}
+\item ClientApp
+\item MapController
+\end{itemize}
+
+\item [G4]Allows clients to reserve a car that fits most their needs.
+\begin{itemize}
+\item ClientApp
+\item ReservationController
+\end{itemize}
+
+\item [G5]A client can start the rent opening a car that has reserved previously when he/she is in the near by.
+\begin{itemize}
+\item ClientApp
+\item RentController
+\end{itemize}
+
+\item [G6]During the rent a client can display the amount of money charged.
+\begin{itemize}
+\item CarRemoteController
+\end{itemize}
+
+\item [G7]Guarantee as many available cars as possible encouraging clients to have a virtuous and eco-friendly behavior applying fees and discounts.
+\begin{itemize}
+\item FareController
+\end{itemize}
+
+\item [G8]Allows clients to end the rent and leave the car in any safe area.
+\begin{itemize}
+\item CarRemoteController
+\item CarController
+\item RentController
+\end{itemize}
+
+\item [G9]Clients can report eventual damages made by users that have driven the car before.
+\begin{itemize}
+\item CarRemoteController 
+\item CarController
+\end{itemize}
+
+\item [G10]Clients can set the money saving option.
+\begin{itemize}
+\item CarRemoteController
+\item CarController
+\item DistributionOptimizer
+\end{itemize}
+
+\end{itemize}

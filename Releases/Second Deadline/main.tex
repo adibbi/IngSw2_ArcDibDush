@@ -1,0 +1,155 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+
+%% For Java highlight
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+\usepackage{listings}
+\lstset{language=Java,
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  basicstyle=\ttfamily,
+  moredelim=[il][\textcolor{pgrey}]{$$},
+  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+}
+
+\title{Design Document}
+\author{Software Engineering 2}
+\date{December 11,2016}
+
+\begin{document}
+\maketitle
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=300 pt]{resources/polimi.png}
+  \label{fig:polimi}
+\end{figure}
+
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+
+\begin{minipage}{0.7\textwidth}
+\begin{flushleft} \large
+\emph{Authors:}\\
+Claudio Salvatore \textsc{Arcidiacono} Matr 879109\\
+Antonio \emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\textsc{Di Bello} \emph{ }\emph{ }\emph{ }\emph{ } Matr 878786\\
+Denis  \emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\textsc{Dushi } \emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }Matr 879115
+\end{flushleft}
+\end{minipage}
+
+\begin{minipage}{0.4\textwidth}
+
+\end{minipage}
+
+\pagenumbering{gobble}
+\newpage
+\pagenumbering{arabic}
+
+\tableofcontents
+
+\newpage
+\section{Introduction}
+\input{introduction.tex}
+
+\newpage
+\section{Architectural design}
+\input{architectural.tex}
+
+\newpage
+\section{Algorithm design
+}
+\input{algorithm.tex}
+
+\newpage
+\section{User interface design}
+\input{user_interface.tex}
+
+\newpage
+\section{Requirements traceability}
+\input{traceability.tex}
+
+\newpage
+\section{Effort spent}
+During the whole project the team worked with the following schedule:\\ \emph{\\}
+\textbf{Claudio Salvatore Arcidiacono}
+\begin{itemize}
+\item 29 November : 2 hours
+\item 7 December : 15-18 3 hours
+\item 8 December : 15-22 5 hours (2hours of pause) 
+\item 9 December : 14-18 4 hours\\ 
+
+\textbf{Total hours:} 14 hours.
+\end{itemize}
+
+
+\textbf{Antonio Di Bello}
+\begin{itemize}
+\item 29 November : 2 hours
+\item 5 December : 3 hours
+\item 6 December : 3 hours
+\item 8 December : 1 hour
+\item 9 December : 4 hours
+\item 10 December : 2 hours \\
+
+\textbf{Total hours:} 15 hours.
+\end{itemize}
+
+
+\textbf{Denis Dushi}
+\begin{itemize}
+\item 29 November : 2 hours
+\item 6 December : 3 hours
+\item 7 December : 3 hours
+\item 8 December : 6 hours
+\item 10 December : 3 hours
+\item 11 December : 1 hours\\
+
+\textbf{Total hours:} 18 hours.
+\end{itemize}
+
+\newpage
+\section{References}
+\subsection{Software and tool used}
+The tools we used to create this DD document are:
+\begin{itemize}
+\item Overleaf (for latex writing in parallel)
+\item Photoshop (for mockups)
+\item Draw.io (for UML diagrams)
+\end{itemize}
+
+\newpage
+\listoffigures
+
+\end{document}

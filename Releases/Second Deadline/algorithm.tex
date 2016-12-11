@@ -1,0 +1,97 @@
+Here there is a little view (for example written in Java) of some important algorithm used in the system.
+Here below, it is shown how the system indicates a charging station near the destination in order to guarantee a uniform distribution of cars in the city.\\
+
+\begin{lstlisting}
+/**
+ * Example of some important classes.
+ **/
+
+package com.sweng.powerenjoy.routeOptimizer;
+
+import java.util.Math;
+
+public class DistributionOptimizer {
+
+     /** 
+     * Calculate the charging station where the client should 
+     * release the car to obtain the "money saving" discount.
+     *
+     * @param destination  The final destination of the client.
+     * @throw NotAvailStationException  If there aren't near 
+     *                                  stations have a free plug.
+     * @return    The position of the recommended charging station.
+     */
+    static Position RecommendPosDiscount(Position destination) throws NoAvailStationException {
+    
+        int distance;
+        int minCarNumber=Integer.LIMIT_MAX;
+        int carNumber;
+        ChargingStation rightStation;
+        
+        for (ChargingStation station : allChargingStations){
+            distance=destination.calcDistance(station.getPosition());
+            if(distance<MAX_DISTANCE){
+                carNumber=station.getNumberCarPlugged();
+                if(carNumber<minCarNumber && station.getNumberAvailablePlug()>2){
+                    rightStation=station;
+                }
+            }
+        }
+        if (rightStation==null)
+            throw new NoAvailStationException(destination,MAX_DISTANCE);
+        return rightStation.getPosition();
+    }
+    
+}
+
+
+public class ChargingStation {
+
+    private Position position;
+    private int numberPlug;
+    private Vector<Car> cars;
+    //...
+    
+    public int getNumberCarPlugged(){
+        return numberPlug-this.getNumberAvailablePlug();
+    }
+    
+    int getNumberAvailablePlug(){
+    	int n=numberPlug;
+    	for(Car car : cars){
+        /**
+        * For future optimization we can consider the plug 
+        * attacched to a reserved car as free.
+        * ... && car.getStatus!=Status.RESERVED)
+        **/
+        	if (car.isPlugged())
+            	n--;
+        }
+        return n;
+    }
+
+}
+
+/**
+ * One address corresponds to a set of coordinates.
+ * There aren't two different position with the same coordinates.
+ **/
+public class Position {
+
+    private Coordinate coordinate;
+    private String addressName;
+    private int civicNumber;
+    
+    public int calcDistance(Position p){
+        int x1,x2,y1,y2,d;
+        x1=coordinate.getRelativeX();
+        y1=coordinate.getRelativeY();
+        x2=p.getRelativeX();
+        y2=p.getRelativeY();
+        d=sqrt( pow(x1-x2,2) + pow(y1-y2,2) );
+        return d;
+    }
+    
+}
+
+\end{lstlisting}

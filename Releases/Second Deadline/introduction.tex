@@ -1,0 +1,92 @@
+\subsection{Purpose}
+The purpose of this document is to explain the architectural decisions and tradeoffs chosen in the design process of the PowerEnJoy system.
+The document aims to provide a view of:
+\begin{itemize}
+\item The main software components of the system and their interactions
+\item The architectural styles and patterns used in the design process
+\item The user interfaces and how the interaction between user and system are managed
+\item How the design decisions satisfy the requirements previously defined in the RASD
+\end{itemize}
+
+\subsection{Scope}
+The project to be developed is PowerEnJoy, a digital management system for a car-sharing service that exclusively employs electric cars.
+The system has to allow users to register and log in to the service, to see which car are available and were the cars can be parked. In addition to the basic functionality of a car-sharing service the system has to incentivize virtuous behaviors of the users, like plugging the car to a charging station or leaving the car with enough charge, in order to have as much as possible a self-sustainable service.
+
+\subsection{Definitions, Acronyms, Abbreviations}
+\subsubsection{Definitions}
+\textbf{Guest:}
+ is an user that is not registered yet to PowerEnJoy.\\
+\textbf{Client:}
+is an user that has completed successfully the registration procedure.\\
+\textbf{Logged client:}
+is a client that has logged into PowerEnJoy.\\
+\textbf{Blocked client:}
+is a client that is not allowed to log in to system because he has some debits with PowerEnJoy.\\
+\textbf{User:}
+a client or a guest.\\
+\textbf{Virtuous  behavior:}
+the client has a "Virtuous behavior" if he performs one or more of the following actions: 
+\begin{itemize}
+\item transport at least other two passengers into the car.
+\item leaves the car with less than 50\% of the battery empty.
+\item plugs the car into the power grid of a charging station.
+\end{itemize}
+\emph{\\}
+\textbf{Rent:} defines the period of time that starts when the logged client opens the car and ends when the door of the car are locked due to a "end rent" request of the logged client.\\
+\textbf{Pin:} a personal sequence of four numbers given by the system after the registration, necessary to start the engine.\\
+\textbf{Map Information:}
+denotes the following information: 
+\begin{itemize}
+\item location of available cars.
+\item location of charging areas.
+\item for each charging area the number of available charging spots.
+\item boundaries of safe areas.
+\end{itemize}
+\emph{\\}
+\textbf{Not valid data:}
+syntactically incorrect data (e.g. mail not in the format local-part@domain).\\
+\textbf{Credentials:}
+email and password used to log into PowerEnJoy.\\
+\textbf{Valid Credentials:}
+email and password related to a registered user.\\
+\textbf{Car information Menu:}
+displayed when a client selects a car on the map. In this menu are displayed the information about the car (remaining charge percentage and license plate number) and a button that can be used to reserve the car.\\
+\textbf{Safe Areas:} 
+areas in which is permitted to the client to end the rent and leave the car.\\
+\textbf{Valid Payment Information:}Credit or prepaid card with at least a minimum amount of money.\\
+
+
+\subsubsection{Acronyms}
+\begin{itemize}
+\item \textbf{RASD:} requirements analysis and specifications document
+\item \textbf{UX:} user experience
+\item \textbf{BCE:} boundary-control-entity diagram
+\item \textbf{MVC:} Model-View-Controller pattern 
+\end{itemize}
+
+\subsection{Reference Documents}
+\begin{itemize}
+\item RASD Document
+\item Assignment AA 2016-2017.pdf
+\item Sample Design Deliverable Discussed on Nov.2.pdf
+\end{itemize}
+
+
+\subsection{Document Structure}
+\begin{itemize}
+\item \textbf{Introduction:} This section gives a brief introduction of the Design Document.
+
+\item \textbf{Architectural Design:} this section is divided as follows:
+\begin{enumerate}
+\item \textit{Overview:} this part defines the high level components and their interaction
+\item \textit{Component view:} this part provides a definition of the software component of the system and their interaction
+\item \textit{Deployment view:} this part describes how the component previously defined must be deployed.
+\item \textit{Runtime view:} this part provides a set of sequence diagrams to explain the way components interact to accomplish specific tasks
+\item \textit{Component interfaces:} this part gives a definition of the main interfaces that components provide.
+\item \textit{Selected architectural styles	and patterns:} this part contains an explanation of which architectural styles and patterns have been used in the design process and why those decisions have been applied.
+\item \textit{Other design decisions}
+\end{enumerate}
+\item \textbf{Algorithm Design:} this section defines the most critical and relevant parts of the system  using Java code.
+\item \textbf{User Interface Design:} this section provides mockups, UX and BCE diagrams to explain how user and system will interact.
+\item \textbf{Requirement Traceability:} this section  explains how the requirements presented in the RASD are satisfied by the design decisions made.
+\end{itemize}
