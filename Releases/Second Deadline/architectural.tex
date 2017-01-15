@@ -15,6 +15,14 @@ In the first level we find two components, the client and the car system. The cl
 At the second level there is the server,which should be written in php and should have an event driven architecture because it should handle multiple requests at the same time asynchronously. The server interacts with the client by sending notifications about the payments and requesting periodically the position. The server interacts with the car requiring lock/unlock doors and enable engine.The server also requires information such as the position, the remaining charge, the number of passengers and if the car is plugged or not to a charging station.  
 At the third level we find the DBMS server that handles a SQL database.
 The server interacts with the DBMS with some fetch data request and with some data update requests.
+\\
+
+\begin{figure}[hp]
+\centering
+\includegraphics[width=420 pt]{resources/High_components.png}
+\caption{\label{fig:high_component}High level component diagram.}
+\end{figure}
+
 
 \newpage
 \subsection{Component view}

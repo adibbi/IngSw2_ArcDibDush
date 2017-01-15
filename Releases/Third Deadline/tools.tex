@@ -1,0 +1,19 @@
+In order to simplify and speed up the testing phase, we are going to use some automated tools.
+Furthermore, the test must be run in a specific environment with a reasonable data, these must approximate as much as possible the expected reality.
+
+\subsection{Tools}
+
+For testing the business logic, that could be written in Java EE, we can use two main tools that work together, \textbf{Arquillan} and \textbf{JUnit}.\\
+Arquillan is a tool that help to verify the correct interaction between a component and its execution environment. Therefore we will use this tools in order to identify eventually problems into a Java container that has deployed on server side. More precisely, we check the right component injection where another component need them.\\
+Even if JUnit framework is used during unit test, it can be also used as support to verify that during an interaction between components the right effect will be produced. For example, we use it to check that the correct object is returned when a method is invoked or to assure that an exception is raised when the invoked method is invalid.\\
+Finally one other tool that can be useful is \textbf{Mockito}. This tool help us to create the stub necessary during the integration test. In particular, when a component to be called isn't yet implemented, Mockito easily allows us to define a fake response for the caller.\\
+Furthermore, particularity attention will be posed on the performance that the system should be guarantee during certain phase. For example, it's requested a high reactivity during the operation of start a rent and end a rent. For this purpose we can use \textbf{JMeter}, that allows us to load the system with a reasonable quantity of request and verify that the system performance meets a certain criteria of performance.
+
+
+\subsection{Test equipment required}
+
+In order to perform a valid integration tests, an environment with a minimum specific requirement is needed.
+The PowerEnJoy system is made up by a different types of hardware component, so during the test phase it's required an heterogeneous representation of them. 
+Surely, in addition to server and database that constitute the core of the system, is required a car provided by equipment necessary to interact and communicate remotely. 
+The most critical aspect is represented by the choice of the client device. In fact, if for testing the web application can be used a little set of the most used browser, for the mobile app it's necessary to use more configurations. For a minimum coverage of possible real situations is requested at least one mobile device for each OS, and it's recommended to use different display size. 
+Finally should be recreated special situations like for example those in which there is low data connectivity or the GPS signal is absent.

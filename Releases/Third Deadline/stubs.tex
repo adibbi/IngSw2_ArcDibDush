@@ -1,0 +1,81 @@
+\subsection{Stubs}
+Since we are using a critical-first strategy we need  5 stubs:
+
+\subsubsection{CarRemoteControllerStub}
+\textbf{Usages:}
+\begin{itemize}
+\item I2T3
+\item I3T2
+\item I3T3
+\item I4T1
+\end{itemize}
+
+\textbf{Description}
+This stub emulates the behavior of the car system, it is used by the CarController to achieve several tasks:
+\begin{itemize}
+\item Updating periodically the car position in the model
+\item Opening and closing the car doors after a client request
+\item Changing the car status
+\end{itemize}
+
+\subsubsection{CarControllerStub}
+\textbf{Usages:}
+\begin{itemize}
+\item I2T5
+\item I2T6
+\end{itemize}
+
+\textbf{Description}
+This stub emulates the behavior of the CarController component, it is used by the ReservationController  to check and eventually change the car status after a new request of rent or reservation.
+
+\subsubsection{FareControllerStub}
+\textbf{Usages:}
+\begin{itemize}
+\item I2T6
+\item I3T3
+\item I4T1
+\end{itemize}
+\textbf{Description}
+This stub emulates the behavior of the FareController component, it is used by the RentController to  make a payment request and verify that the payment succeed after an end rent request.
+
+\subsubsection{RentControllerStub}
+\textbf{Usages:}
+\begin{itemize}
+\item I2T3
+\end{itemize}
+
+\textbf{Description}
+This stub emulates the behavior of the RentController component, it is used by the CarController to end a rent after receiving an end rent  request.
+
+\subsubsection{ReservationControllerStub}
+\textbf{Usages:}
+\begin{itemize}
+\item I3T3
+\end{itemize}
+
+\textbf{Description}
+This stub emulates the behavior of the ReservationController component, it is used by the RentController to verify the existence of a valid reservation after receiving  a start rent  request .
+
+\subsection{Drivers}
+Since we are using a bottom-up approach we will need several Divers in order to accomplish our integration tests, here there is a list of drivers with their functionalities:
+
+\begin{itemize}
+\item \textbf{MapServiceDriver}: used in the test \textbf{I2T1},  this driver calls the methods of the \textbf{MapController} in order to test its integration with the \textbf{Model}, mostly are getters methods, to get the information about a certain area or about cars.
+\item \textbf{UserServiceDriver}: used in the test \textbf{I2T2},  this driver calls the methods of the \textbf{UserController} in order to test its integration with the \textbf{Model}, this driver have to emulate a user that try to register or log in to \textbf{PowerEnjoy}, so it has to enter some personal data calling the right methods of \textbf{UserController}.
+\item \textbf{CarManagerDriver}: used in the test \textbf{I2T3},  this driver calls the methods of the \textbf{CarController} in order to test its integration with the \textbf{Model} . The driver has to emulate the environment of a new rent request, made by the \textbf{RentController}
+\item \textbf{CarRequestHandlerDriver}: used in the test \textbf{I2T3},  this driver calls the methods of the \textbf{CarController} in order to test its integration with the \textbf{Model}. The driver has to emulate the environment of a end rent request, emulating the behavior of the \textbf{CarRemoteController}.
+\item \textbf{CarStatusManagerDriver}: used in the test \textbf{I2T3},  this driver calls the methods of the \textbf{CarController} in order to test its integration with the \textbf{Model}. The driver has to emulate the environment of a new Reservation request, emulating the behavior of the \textbf{ReservationController}.
+\item \textbf{DistributionManagerDriver}: used in the test \textbf{I2T4},  this driver calls the methods of the \textbf{DistributionOptimizer} in order to test its integration with the \textbf{Model}. The driver emulate the environment of a request of a possible car distribution made by the \textbf{CarController}
+\item \textbf{ReservationServiceDriver}: used in the tests \textbf{I2T5} ,\textbf{I3T2}  this driver calls the methods of the \textbf{ReservationController} in order to test its integration with the \textbf{Model} and with the \textbf{CarController}. It emulates the behavior of a client that tries to do a reservation on a car.
+\item  \textbf{ReservationManagerDriver}: used in the test \textbf{I2T5}  this driver calls the methods of the \textbf{ReservationController} in order to test its integration with the \textbf{Model}.It emulates the behavior of  \textbf{RentController} when it receives an new rend request. 
+\item \textbf{RentServiceDriver}: used in the tests \textbf{I2T6}, \textbf{I3T3}, \textbf{I4T1} and \textbf{I5T1}  this driver calls the methods of the \textbf{RentController} in order to test its integration with the Model, with the \textbf{CarController}, with \textbf{ReservationController} and with the \textbf{FareController}.It emulates the behavior of a client that tries to rent a car he has previously reserved .
+\item \textbf{RentManagerDriver}: used in the test \textbf{I2T6}  this driver calls the methods of the \textbf{RentController} in order to test its integration with the \textbf{Model}.It emulates the behavior  \textbf{CarController} when it receives an end rend request. 
+\item \textbf{FareManagerDriver}: used in the test \textbf{I2T7},  this driver calls the methods of the \textbf{FareController} in order to test its integration with the \textbf{Model}.It emulates the behavior of  \textbf{RentController} when it receives an end rend request. 
+\item \textbf{CarRequestHandlerDriver}: used in the tests \textbf{I3T1} and \textbf{I3T3},  this driver calls the methods of the \textbf{CarController} in order to test its integration with the \textbf{DistributionOptimizer} and \textbf{RentController}. It emulates the requests made by \textbf{CarRemoteController}. 
+\end{itemize}
+
+
+\subsection{Test Data}
+In order to produce some significant tests we  will need to populate our database with several fake data  for users, requests(past and running),rents(past and running), charging stations, cars, map and all other entities that will populate the database. 
+The generation of such data can be made using some faker library that will allow us to populate the database.
+

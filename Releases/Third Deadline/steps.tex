@@ -1,0 +1,603 @@
+\subsection{Integration test case I1}
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I1T1 \\
+\hline
+\textbf{Test Item(s)} &  Model and DBMS\\
+\hline
+\textbf{Input Specification} & Car,User,Rent,Reservation,ChargingStation,SafeArea\\
+\hline
+\textbf{Output Specification} & The Database queries are correctly called by the methods of the Model and there is referential integrity between the data in the database and the data of the model\\
+\hline
+\textbf{Environmental Needs} & N/A\\
+\hline
+\textbf{Dependencies} & Test data to fill the Database\\
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+
+%----------------------------------------
+
+
+\subsection{Integration test case I2}
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+\hline
+\textbf{Test Case Identifier} & I2T1 \\
+\hline
+\textbf{Test Item(s)} &  Model+DBMS and MapController  \\
+\hline
+\textbf{Input Specification} &  a gps position and a distance\\
+\hline
+\textbf{Output Specification} &  correct information about the indicated area like cars available, safe areas and charging stations\\
+\hline
+\textbf{Environmental Needs} & MapServiceDriver \\
+\hline
+\textbf{Dependencies} &  test data about map elements \\
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+%--------------------------------------
+
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I2T2 \\
+\hline
+\textbf{Test Item(s)} &  Model+DBMS and UserController  \\
+\hline
+\textbf{Input Specification} &  personal data and payment information in a correct format\\
+\hline
+\textbf{Output Specification} &  the system calls the right methods in order to insert the new user data into the database and allow the new user to use the service\\
+\hline
+\textbf{Environmental Needs} & UserServiceDriver \\
+\hline
+\textbf{Dependencies} &  N/A\\%DBMS stub\\
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+
+%--------------------------------------
+
+
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I2T3 \\
+\hline
+\textbf{Test Item(s)} &  Model+DBMS and CarController  \\
+\hline
+\textbf{Input Specification} &  Car, User\\
+\hline
+\textbf{Output Specification} &  The system invokes the right methods in order to change the car information in the model\\
+\hline
+\textbf{Environmental Needs} & CarManagerDriver, CarRequestHandlerDriver,  CarStatusManagerDriver\\
+\hline
+\textbf{Dependencies} &  CarRemoteController Stub,RentController Stub\\
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+
+%--------------------------------------
+
+
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I2T4 \\
+\hline
+\textbf{Test Item(s)} &  Model+DBMS and DistributionOptimizer  \\
+\hline
+\textbf{Input Specification} & gps position\\
+\hline
+\textbf{Output Specification} & The distributionOptimizer is able to get information about cars within a certain area\\
+\hline
+\textbf{Environmental Needs} &DistributionManagerDriver\\
+\hline
+\textbf{Dependencies} &  Test data about cars\\
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+
+
+%--------------------------------------
+
+
+
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I2T5 \\
+\hline
+\textbf{Test Item(s)} &  Model+DBMS and ReservationController  \\
+\hline
+\textbf{Input Specification} & Reservation, User, Car\\
+\hline
+\textbf{Output Specification} & The ReservationController invokes the right methods of the model in order to add a new reservation of the specified user for the specified car car\\
+\hline
+\textbf{Environmental Needs} & ReservationServiceDriver, ReservationManagerDriver\\
+\hline
+\textbf{Dependencies} &  test data about users and reservations, CarController stub\\ %DBMS stub, \\
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+%--------------------------------------
+
+
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I2T6 \\
+\hline
+\textbf{Test Item(s)} &  Model+DBMS and RentController  \\
+\hline
+\textbf{Input Specification} & Rent,Reservation, User, Car\\
+\hline
+\textbf{Output Specification} & The RentController invokes the right methods of the model in order to add a new rent of the specified user for the specified car preceded by the specified Reservation\\
+\hline
+\textbf{Environmental Needs} & RentServiceDriver , RentManagerDriver\\
+\hline
+\textbf{Dependencies} &  test data about rents and reservations and cars, FareControllerStub, CarControllerStub\\% DBMS stub,
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+
+%--------------------------------------
+
+
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I2T7 \\
+\hline
+\textbf{Test Item(s)} &  Model+DBMS and FareController  \\
+\hline
+\textbf{Input Specification} & Rent,User,Car\\ %  Per correttezza sarebbe client ma poi si confonde con il client  del client-server quindi magari si scrive nell'introduzione
+\hline
+\textbf{Output Specification} & The FareController acquire the needed information about the user \\
+\hline
+\textbf{Environmental Needs} & FareManagerDriver\\
+\hline
+\textbf{Dependencies} &  test data about users\\% DBMS stub,
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+
+%--------------------------------------add
+
+\subsection{Integration test case I3}
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I3T1 \\
+\hline
+\textbf{Test Item(s)} &  CarController and DistributionOptimizer  \\
+\hline
+\textbf{Input Specification} & a gps area\\
+\hline
+\textbf{Output Specification} & The CarController invokes the right methods of DistributionOptimizer\\
+\hline
+\textbf{Environmental Needs} & I1T3 and I1T4 succeeded, CarRequestHandlerDriver\\
+\hline
+\textbf{Dependencies} &  Test Data about cars\\
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+
+%--------------------------------------
+
+
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I3T2 \\
+\hline
+\textbf{Test Item(s)} &  CarController and ReservationController  \\
+\hline
+\textbf{Input Specification} & Car\\
+\hline
+\textbf{Output Specification} & The ReservationController invokes the right methods of CarController in order to change the status of the specified car\\
+\hline
+\textbf{Environmental Needs} & I1T3 and I1T5 succeeded, ReservationServiceDriver\\
+\hline
+\textbf{Dependencies} &  CarRemoteController Stub\\
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+
+%--------------------------------------
+
+
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I3T3 \\
+\hline
+\textbf{Test Item(s)} &  CarController and RentController  \\
+\hline
+\textbf{Input Specification} & Car\\
+\hline
+\textbf{Output Specification} & The RentController invokes the right methods of CarController in order to unlock the doors of the specified car\\
+\hline
+\textbf{Environmental Needs} & I1T3 and I1T6 succeeded, RentServiceDriver,CarRequestHandlerDriver\\
+\hline
+\textbf{Dependencies} &  CarRemoteController Stub, FareControllerStub, ReservationControllerStub\\
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+
+%--------------------------------------
+
+
+\subsection{Integration test case I4}
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I4T1 \\
+\hline
+\textbf{Test Item(s)} &  RentController and ReservationController   \\
+\hline
+\textbf{Input Specification} & Car,User,Reservation\\
+\hline
+\textbf{Output Specification} & The RentController invokes the right methods of ReservationController in order to modify the status of the reservation made by the specified user for the specified car\\
+\hline
+\textbf{Environmental Needs} & I1T5, I1T6, I2T2 and I2T3 succeeded, RentServiceDriver\\
+\hline
+\textbf{Dependencies} &  CarRemoteController Stub, FareController Stub,  test data about reservation, users and cars\\%DBMS stub,
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+
+%--------------------------------------
+\subsection{Integration test case I5}
+
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I5T1 \\
+\hline
+\textbf{Test Item(s)} &  RentController and FareController   \\
+\hline
+\textbf{Input Specification} & Car,User,Rent\\
+\hline
+\textbf{Output Specification} & The RentController invokes the right methods of FareController in order to start the payment operations.\\
+\hline
+\textbf{Environmental Needs} & I1T6, I1T7, I2T3 and I3T1 succeeded,RentManagerDriver\\
+\hline
+\textbf{Dependencies} &   test data about rent and users\\%DBMS stub, \\
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+
+%--------------------------------------
+
+
+
+
+%Anto 
+%--------------------------------------
+\subsection{Integration test case I6: Reservation}
+
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I6T1 \\
+\hline
+\textbf{Test Item(s)} & ClientApp and Server and CarRemoteController   \\
+\hline
+\textbf{Input Specification} & Client,Car \\
+\hline
+\textbf{Output Specification} & Server stores the request if all condition about client profile and car status are satisfied, then modify the status of the car invoking the right method of CarRemoteController and starts the reservation countdown.\\
+\hline
+\textbf{Environmental Needs} & I1...I5 succeeded. \\
+\hline
+\textbf{Dependencies} &  \\
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+
+%--------------------------------------
+\subsection{Integration test case I7: Start rent}
+
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I7T1 \\
+\hline
+\textbf{Test Item(s)} & ClientApp and Server and CarRemoteController \\
+\hline
+\textbf{Input Specification} & Client,Car \\
+\hline
+\textbf{Output Specification} & The server checks if exist a valid reservation for (Client,Car) and after that, sends a remote command to the car to unlock the doors. \\
+\hline
+\textbf{Environmental Needs} &  I1...I5 succeeded. \\
+\hline
+\textbf{Dependencies} & N/A \\
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+%--------------------------------------
+
+
+
+%--------------------------------------
+\subsection{Integration test case I8: Map visual}
+
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I8T1 \\
+\hline
+\textbf{Test Item(s)} & ClientApp and Server \\
+\hline
+\textbf{Input Specification} & User, position \\
+\hline
+\textbf{Output Specification} & Server collects information about the available cars near the position, then send it to ClientApp.  \\
+\hline
+\textbf{Environmental Needs} &I1...I5 succeeded. \\
+\hline
+\textbf{Dependencies} & N/A\\
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+%--------------------------------------
+
+
+%--------------------------------------
+\subsection{Integration test case I9: User Account Management}
+
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I9T1 \\
+\hline
+\textbf{Test Item(s)} & ClientApp and Server \\
+\hline
+\textbf{Input Specification} & User\\
+\hline
+\textbf{Output Specification} & User submit his username and password, Server checks if the credentials are valid and allows the client to access to the system.   \\
+\hline
+\textbf{Environmental Needs} & I1...I5 succeeded. \\
+\hline
+\textbf{Dependencies} & N/A \\
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I9T2 \\
+\hline
+\textbf{Test Item(s)} & ClientApp and Server \\
+\hline
+\textbf{Input Specification} & User\\
+\hline
+\textbf{Output Specification} & User submit his personal data, the ClientApp checks if they are valid, the Server manages the request and register a new user.  \\
+\hline
+\textbf{Environmental Needs} &I1...I5 succeeded. \\
+\hline
+\textbf{Dependencies} & N/A \\
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+%--------------------------------------
+
+%
+%--------------------------------------
+\subsection{Integration test case I10: End rent}
+
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I10T1 \\
+\hline
+\textbf{Test Item(s)} & Server and CarRemoteController \\
+\hline
+\textbf{Input Specification} & Request of end rent on CarRemoteController passing a GPS position that doesn't correspond to a safe area \\
+\hline
+\textbf{Output Specification} & The end of the rent is not allowed, is called a method on CarRemoteController that notifies the user on the car display.\\
+\hline
+\textbf{Environmental Needs} & I1...I5 succeeded. \\
+\hline
+\textbf{Dependencies} & N/A \\
+\hline
+\newline
+\newline
+
+\end{tabular*}
+\end{center}
+
+%--------------------------------------
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I10T2 \\
+\hline
+\textbf{Test Item(s)} & Server and CarRemoteController \\
+\hline
+\textbf{Input Specification} & Request of end rent on CarRemoteController passing a GPS position corresponding to a safe area  \\
+\hline
+\textbf{Output Specification} & The right methods are called in CarRemoteController and in Server in order to : start the "lock doors" countdown, lock the car's doors, check if the car is plugged,save the rent information,calculate the discounts based, charge the client. \\
+\hline
+\textbf{Environmental Needs} &  I1...I5 succeeded.\\
+\hline
+\textbf{Dependencies} & N/A\\
+\hline
+\newline
+\newline
+
+\end{tabular*}
+\end{center}
+
+%--------------------------------------
+
+
+%--------------------------------------
+\subsection{Integration test case I11: Damage Report}
+
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I11T1 \\
+\hline
+\textbf{Test Item(s)} & Server and CarRemoteController \\
+\hline
+\textbf{Input Specification} & Request of report damage/dirty car on the CarRemoteController\\
+\hline
+\textbf{Output Specification} & The right methods are called in CarRemoteController and in Server in order to: save the information of the report, acquire information about the current and previous rent and send them to the operator system,enable opportunity to end rent without charge. \\
+\hline
+\textbf{Environmental Needs} & I1...I5 succeeded.\\
+\hline
+\textbf{Dependencies} & N/A\\
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+%--------------------------------------
+
+
+%--------------------------------------
+\subsection{Integration test case I12: MoneySavingOption Request}
+
+\begin{center}
+\begin{tabular*}
+{\textwidth}
+{l p{10.5cm}}
+
+\hline
+\textbf{Test Case Identifier} & I12T1 \\
+\hline
+\textbf{Test Item(s)} & CarRemoteController and Server \\
+\hline
+\textbf{Input Specification} & Request to enable "Money saving option" on the CarRemoteController passing the destination address \\
+\hline
+\textbf{Output Specification} & The right methods are called in CarRemoteController and in Server in order to calculate and return information about the charging station where to plug the car based on destination address,cars distribution,charging spots availability.  \\
+\hline
+\textbf{Environmental Needs} & I1...I5 succeeded. \\
+\hline
+\textbf{Dependencies} & N/A\\
+\hline
+\newline
+\newline
+\end{tabular*}
+\end{center}
+
+%--------------------------------------
