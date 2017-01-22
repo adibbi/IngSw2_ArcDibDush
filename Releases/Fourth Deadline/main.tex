@@ -4,7 +4,7 @@
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
-
+\usepackage{siunitx}
 %% Sets page size and margins
 \usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
@@ -15,31 +15,16 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[colorlinks=true, allcolors=black]{hyperref}
 
-%% For Java highlight
-\definecolor{pblue}{rgb}{0.13,0.13,1}
-\definecolor{pgreen}{rgb}{0,0.5,0}
-\definecolor{pred}{rgb}{0.9,0,0}
-\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
-
-\usepackage{listings}
-\lstset{language=Java,
-  showspaces=false,
-  showtabs=false,
-  breaklines=true,
-  showstringspaces=false,
-  breakatwhitespace=true,
-  commentstyle=\color{pgreen},
-  keywordstyle=\color{pblue},
-  stringstyle=\color{pred},
-  basicstyle=\ttfamily,
-  moredelim=[il][\textcolor{pgrey}]{$$},
-  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
-}
-
-\title{Design Document}
+\title{Project Planning}
 \author{Software Engineering 2}
-\date{December 11,2016}
-
+\date{January 22,2017}
+%--------------------
+%Table settings
+\input{commands.tex}
+\usepackage{longtable}
+\usepackage{hhline}
+\usepackage{floatflt}
+%---------------------
 \begin{document}
 \maketitle
 
@@ -80,81 +65,69 @@ Denis  \emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\
 \tableofcontents
 
 \newpage
-\section{Introduction}
+\section{Introduction} 
 \input{introduction.tex}
 
 \newpage
-\section{Architectural design}
-\input{architectural.tex}
+\section{Project size, cost and effort estimation}
+\input{SizeCost.tex}
 
 \newpage
-\section{Algorithm design
-}
-\input{algorithm.tex}
+\section{Schedule}
+\input{Schedule.tex}
 
 \newpage
-\section{User interface design}
-\input{user_interface.tex}
+\section{Resource Allocation}
+\input{ResourceAllocation.tex}
 
 \newpage
-\section{Requirements traceability}
-\input{traceability.tex}
+\section{Risks management}
+\input{Risks.tex}
 
 \newpage
 \section{Effort spent}
 During the whole project the team worked with the following schedule:\\ \emph{\\}
 \textbf{Claudio Salvatore Arcidiacono}
 \begin{itemize}
-\item 29 November : 2 hours
-\item 7 December : 15-18 3 hours
-\item 8 December : 15-22 5 hours (2hours of pause) 
-\item 9 December : 14-18 4 hours\\ 
+\item 17 January  : 16.30-18.30 2 hours
+\item 18 January : 15-20 5 hours
+\item 19 January : 17-21 4 hours
+\item 20 January : 10-13 3 hours
+\item 21 January : 17-20 3 hours 
 
-\textbf{Total hours:} 14 hours.
+\textbf{Total hours:} 17 hours.
 \end{itemize}
 
 
 \textbf{Antonio Di Bello}
 \begin{itemize}
-\item 29 November : 2 hours
-\item 5 December : 3 hours
-\item 6 December : 3 hours
-\item 8 December : 1 hour
-\item 9 December : 4 hours
-\item 10 December : 2 hours \\
+\item 20 January :  1 hours
+\item 21 January :  6 hours
+\item 22 January :  3 hours\\
 
-\textbf{Total hours:} 15 hours.
+\textbf{Total hours:} 10 hours.
 \end{itemize}
 
 
 \textbf{Denis Dushi}
-\begin{itemize}
-\item 29 November : 2 hours
-\item 6 December : 3 hours
-\item 7 December : 3 hours
-\item 8 December : 6 hours
-\item 10 December : 3 hours
-\item 11 December : 1 hours\\
 
-\textbf{Total hours:} 18 hours.
+\begin{itemize}
+\item 16 January  :  2 hours
+\item 17 January :  2 hours
+\item 19 January :  7 hours
+\item 20 January :  6 hours
+\item 21 January :  5 hours
+\item 22 January :  1 hour\\
+
+\textbf{Total hours:} 23 hours.
 \end{itemize}
 
 \newpage
 \section{References}
 \subsection{Software and tool used}
-The tools we used to create this DD document are:
+The tools we used to create this document are:
 \begin{itemize}
 \item Overleaf (for latex writing in parallel)
-\item Photoshop (for mockups)
-\item Draw.io (for UML diagrams)
 \end{itemize}
-
-\newpage
-\subsection{Changelog}
-$15 \backslash 01 \backslash 2017$ : Added the high level component diagram, figure 2.
-$22\backslash01\backslash2017$: little changes in entities attributes in the ER diagram (section 2.8); changed the language of development of the server from PHP to JEE(section 2.2).
-
-\newpage
-\listoffigures
 
 \end{document}
