@@ -1,0 +1,114 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{siunitx}
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+
+\title{Code Inspection}
+\author{Software Engineering 2}
+\date{February 5,2017}
+%--------------------
+\begin{document}
+\maketitle
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=300 pt]{resources/polimi.png}
+  \label{fig:polimi}
+\end{figure}
+
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+\emph{\\}
+
+\begin{minipage}{0.7\textwidth}
+\begin{flushleft} \large
+\emph{Authors:}\\
+Claudio Salvatore \textsc{Arcidiacono} Matr 879109\\
+Antonio \emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\textsc{Di Bello} \emph{ }\emph{ }\emph{ }\emph{ } Matr 878786\\
+Denis  \emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\textsc{Dushi } \emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }\emph{ }Matr 879115
+\end{flushleft}
+\end{minipage}
+
+\begin{minipage}{0.4\textwidth}
+
+\end{minipage}
+
+\pagenumbering{gobble}
+\newpage
+\pagenumbering{arabic}
+
+\tableofcontents
+
+\newpage
+\section{Class that was assigned to the group} 
+../apache-ofbiz-16.11.01/specialpurpose/passport/src/main/java/org/apache/ofbiz/passport\\/user/LinkedInAuthenticator.java
+
+\section{Functional role of assigned set of classes}
+\input{FunctionalRoles.tex}
+
+\newpage
+\section{Issues}
+\input{Issues.tex}
+
+\newpage
+\section{Any other problems}
+\input{OtherProblems.tex}
+
+\newpage
+\section{Effort spent}
+During the whole project the team worked with the following schedule:\\ \emph{\\}
+\textbf{Claudio Salvatore Arcidiacono}
+\begin{itemize}
+\item 1 February : 10-18 6 hours (2 hours of break )
+\item 3 February : 18-21 3 hours
+
+\textbf{Total hours:} 9 hours.
+\end{itemize}
+
+
+\textbf{Antonio Di Bello}
+\begin{itemize}
+\item 26 January :  4 hours
+\item 3 February :  3 hours\\
+
+\textbf{Total hours:} 7 hours.
+\end{itemize}
+
+
+\textbf{Denis Dushi}
+
+\begin{itemize}
+\item 2 February : 10-18 6 hours (2 hours of break )
+\item 3 February : 18-21 3 hours
+
+\textbf{Total hours:} 8 hours.
+\end{itemize}
+
+\newpage
+\section{References}
+\subsection{Software and tool used}
+The tools we used to create this document are:
+\begin{itemize}
+\item Overleaf (for latex writing in parallel)
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,161 @@
+\subsection{Naming Conventions}
+
+\subsubsection{Not meaningful names:}
+\begin{itemize}
+\item In line 213 the method "getLinkedInUserinfo" does not respect the convention, the last word that compose the method's name should be capitalized.
+\item The attribute "responseString" in line 404 should have been called only "response", it's a bad habit to include the type in the variable name.
+\end{itemize}
+\subsubsection{Constants not declared using all uppercase:}
+\begin{itemize}
+\item Line 66, "module"
+\item Line 68, "props"
+\item Line 70, "resource"
+\end{itemize}
+
+\subsection{Indention}
+The Indention is made up to four blank space and it's used consistently.
+No tabs are present.
+
+\subsection{Braces}
+\subsubsection{Inconsistent bracing style:}
+\begin{itemize}
+\item In this class is used consistently the "Kernighan and Ritchie” bracing style.
+\end{itemize}
+
+
+
+\subsection{File Organization}
+
+\subsubsection{Blank lines and optional comments to separate section}
+\begin{itemize}
+\item Lines 18-19: Misses a blank line between comment section and import section.
+\end{itemize}
+
+\subsubsection{Lines longer than 80 characters}
+\begin{itemize}
+\item Line: 18, 101, 105, 107, 111, 112, 131, 146, 157, 164, 177, 192, 197, 207, 213, 217, 219, 223, 248, 255, 259, 277, 282, 287, 297, 304, 309, 315, 319, 326, 334, 339, 346, 359, 382, 396, 399, 404, 406, 409, 420, 441, 452, 453, 456, 457, 460, 461.
+\end{itemize}
+\subsubsection{Lines longer than 120 characters} 
+\begin{itemize}
+\item Line: 101, 107, 111, 164, 219, 223, 287, 399, 409, 420.
+\end{itemize}
+
+\subsection{Wrapping Lines}
+Code lines are never wrapped even if they exceed 120 characters. Specifically the lines are:
+101, 107, 111, 164, 219, 223, 287, 399, 409, 420
+
+
+
+\subsection{Comments}
+\subsubsection{Comments that don't reflect what the code is doing}
+\begin{itemize}
+\item Functions at lines 347, 368, 377, 386 don't reflect the effect described in the relative comment.
+\end{itemize}
+
+\subsubsection{Commented out code that doesn't contain a reason for being commented out}
+\begin{itemize}
+\item Line 270 contains commented code, and there isn't a valid reason for this.
+\item Line 406 contains commented code that it's needed for debugging purpose.
+\end{itemize}
+
+\subsection{Java Source Files}
+\subsubsection{External program interfaces implemented inconsistently with what is described in the javadoc}
+\begin{itemize}
+\item The parameter "userLoginId" of the method "authenticate" in line 101 is not consistently reported in the javadoc. Instead is reported as "username" (line 94). 
+\end{itemize}
+\subsubsection{Incomplete javadoc}
+\begin{itemize}
+\item Javadoc documentation is totally absent for methods in lines : 245, 399, 415, 434.  These methods are public and it is expected an external usage of them, therefore the lack of documentation is very concerning.
+\item Private methods in lines 213, 255, 346 are not documented as well. 
+\item In line 148 the Javadoc documentation misses the description of the parameter "userLoginId"
+\end{itemize}
+
+
+
+\subsection{Package and Import Statements}
+Package statements are the first non-comment statements. Import statements follow.
+\subsection{Class and Interface Declarations}
+\subsubsection{Class (static) variables order:}
+\begin{itemize}
+\item Line 66...70 : the order (public, protected, package, private  ) is not respected, the private variable \textit{module} is written before the two public variables \textit{props} and \textit{resource}.
+\end{itemize}
+
+\subsubsection{Methods not grouped by functionality:}
+\begin{itemize}
+\item the methods  \textit{ getLinkedInUserId, getUserInfo} and the methods \textit{getLinkedInUserinfo} have the same functionality (get user information)  so they should be grouped together.
+\end{itemize}
+\subsubsection{Code duplicates, long methods, big classes, breaking encapsulation:}
+\begin{itemize}
+\item The method \textit{createUser} (lines   255...311) is too long and it does several functions. It should be split into more private methods, one for each function.
+\item The code of the methods \textit{authenticate}  line 101 and \textit{getLinkedInUserinfo} line 213 are quite the same. So the correct from would be  \textit{authenticate} that calls \textit{getLinkedInUserinfo} and then do the  rest of the computation.
+\end{itemize}
+
+\subsection{Initialization and Declarations}
+\subsubsection{Variables and class members not of the correct type or visibility:}
+\textbf{Attributes:}
+\begin{itemize}
+\item the static attribute \textit{resource} (line 70) is declared as public but is used only in the class LinkedInAuthenticator so its visibility should be private.
+\item the attribute \textit{dispatcher} (line 72) is declared as protected but is used only in the class LinkedInAuthenticator so its visibility should be private.
+\item the attribute \textit{delegator} (line 74) is declared as protected but is used only in the class LinkedInAuthenticator so its visibility should be private.
+\end{itemize}
+\textbf{Methods:}
+\begin{itemize}
+\item the method \textit{getUserInfo} (line 399) is declared as public but is used only in the class LinkedInAuthenticator so we don't understand why the visibility its declared as public(maybe future uses), it should be declared as private.
+\item the method \textit{parseLinkedInUserInfo} (line 434) is declared as public but is used only in the class LinkedInAuthenticator so we don't understand why the visibility its declared as public(maybe future uses), it should be declared as private.
+\end{itemize}
+\subsubsection{Variables not declared in the proper scope:}
+\begin{itemize}
+\item the variable beganTransaction at line 171 is not declared in the proper scope. the proper scope would be inside the try catch block, at line 173.
+\end{itemize}
+
+\subsubsection{Declarations not at the beginning of blocks :}
+\begin{itemize}
+\item Due to the fact that the method  \textit{createUser} (lines   255...311) does multiple functions and that it should be split into several function we find that the declarations of its variables is sparse around the method and not at the beginning of the block. Looking inside the internal blocks of the methods  at line 302 and 332 we have declarations that are not at the beginning of the block.
+\item the variables \textit{standardProfileRequest} (line 420) and \textit{url} (line 421)in the method \textit{getLinkedInUserId} (lines 415... 432) are not declared at the beginning of the block .
+\item All the variables from the line 440 to the line 460 of the methods \textit{parseLinkedInUserInfo}(lines 434...465) are  not declared at the beginning of the block.
+\end{itemize}
+
+\subsection{Method Calls}
+Methods are correctly called and the returned values are properly used.
+The parameters are passed in the correct order.
+
+\subsection{Arrays}
+The collections used are Map that are always initialized. \\
+Arrays are used properly.
+
+\subsection{Object Comparison}
+Comparisons between object are executed correctly.
+
+\subsection{Output Format}
+At line 360 the debug message is ambiguous.
+
+\subsection{Computation, Comparisons and Assignments}
+\subsubsection{Liberal use of parenthesis:}
+\begin{itemize}
+\item At line 315 there is an unnecessary use of parenthesis, more specifically the parenthesis at columns 37...110  
+\end{itemize}
+\subsubsection{Comparisons and Boolean operators:}
+\begin{itemize}
+\item At line 417 we have an if condition stating  "\textit{persons.getLength() <= 0}" . \textit{persons} is of type NodeList and the method getLenght returns the number of elements in the node list, so the usage of less or equal is inappropriate(a list can't contain a negative number of elements). The correct form would be  persons.getLength() == 0 . 
+\end{itemize}
+
+\subsection{Exceptions}
+
+\subsubsection{The relevant exceptions are caught}
+\begin{itemize}
+\item Line 275 and 284 : line 284 should be moved in the try block, in order to avoid a possible null pointer exception.
+\end{itemize}
+
+\subsubsection{Appropriate actions are taken for each catch block}
+\begin{itemize}
+\item Line 192: The debug message is wrong, it should uses "begin" instead of "suspend".
+\item Lines 176, 191, 196, 206, 320: the catch blocks generate only a debug message, without trying to workaround the problem.
+\item Lines 115 -123 and 226-235: the catch blocks only throw another exception of different type, that will be managed from the caller of the function. All the catch blocks do the same things, so they can be grouped into only one catch.
+\item Line 173: try block isn't associated at any catch block, is present only the finally block. Furthermore, internally at the try block there are some try/catch block. This may result in confusing code and should have their catch and finally sections merged.
+\end{itemize}
+
+
+\subsection{Flow of Control}
+All loops are correctly formed. There aren't switch statements.
+\subsection{Files}
+Files are not used in this class.

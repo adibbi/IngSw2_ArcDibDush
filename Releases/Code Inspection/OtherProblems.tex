@@ -1,0 +1,13 @@
+
+\begin{itemize}
+\item In line 107 to the method UtilMisc.toMap is passed a probably wrong String parameter due to a typo. Should be “LinkedInUser” instead of "linedInUserId". This is the source of a bug because the function can't derive the information of the LinkedIn user and will not permit the authentication.
+
+\item The method "authenticate" (line 101) requires two parameters "String password" and "boolean isServiceAuth" that are never used inside the function. We guess that the password is managed and verified externally. The fact that in lines 272/273 the password of a new user is set "[EXTERNAL]" support that thesis.
+
+\item Functions at line  340, 347, 368, 377, 386 have not been implemented.
+
+\item In line 366 and 373 are present the following typos : "Authenicator", "synchronzied".It  will bring bugs probably.
+
+\item The structure of the  functions \textit{createUser} at line 245 and 255 is totally wrong because the function at line  245 just call the function at line 255 that is too long and does too many function. The correct form would be to have a public function that calls a set of private function.
+
+\end{itemize}
